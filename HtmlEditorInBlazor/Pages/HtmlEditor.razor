@@ -1,0 +1,35 @@
+﻿@inject IJSRuntime JS;
+
+<DxGridLayout>
+    <Rows>
+        <DxGridLayoutRow Height="auto" />
+        <DxGridLayoutRow />
+    </Rows>
+    <Items>
+        <DxGridLayoutItem Row="0">
+            <Template>
+                <div id="toolbarContainer" />
+            </Template>
+        </DxGridLayoutItem>
+        <DxGridLayoutItem Row="1">
+            <Template>
+                <div id="html-editor" />
+            </Template>
+        </DxGridLayoutItem>
+    </Items>
+</DxGridLayout>
+
+@code {
+
+    [Parameter]
+    public object Value { get; set; }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            var module = await JS.InvokeAsync<IJSObjectReference>("import", "./Pages/HtmlEditor.razor.js");
+            await module.InvokeVoidAsync("renderHtmlEditor", "html-editor", "toolbarContainer", Value);
+        }
+    }
+}

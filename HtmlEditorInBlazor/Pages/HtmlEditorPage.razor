@@ -1,0 +1,11 @@
+﻿@page "/htmlEditor"
+
+<HtmlEditor Value="value"/>
+
+@code {
+    string value;
+    protected override async Task OnInitializedAsync()
+    {
+        value = await File.ReadAllTextAsync("./Data/sample.html");
+    }
+}
