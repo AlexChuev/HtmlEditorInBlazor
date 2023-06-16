@@ -5,6 +5,8 @@ VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HtmlEditorInBlazor", "HtmlEditorInBlazor\HtmlEditorInBlazor.csproj", "{0E0F4081-89B0-4C19-BEAE-75DC2989C88E}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JSWidgetsRCL", "JSWidgetsRCL\JSWidgetsRCL.csproj", "{1441B464-5D6F-47A8-B07E-9004D552F711}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{0E0F4081-89B0-4C19-BEAE-75DC2989C88E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0E0F4081-89B0-4C19-BEAE-75DC2989C88E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0E0F4081-89B0-4C19-BEAE-75DC2989C88E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1441B464-5D6F-47A8-B07E-9004D552F711}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1441B464-5D6F-47A8-B07E-9004D552F711}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1441B464-5D6F-47A8-B07E-9004D552F711}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1441B464-5D6F-47A8-B07E-9004D552F711}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

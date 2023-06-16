@@ -9,27 +9,27 @@
     background-color: var(--bs-body-bg, var(--dxbl-body-bg, #fff));
 }
 
-.sidebar.collapse {
-    display: none;
-}
+    .sidebar.collapse {
+        display: none;
+    }
 
-.sidebar.expand {
-    display: block;
-}
+    .sidebar.expand {
+        display: block;
+    }
 
 @media (max-width: 1199.98px) {
     .sidebar {
         display: none;
     }
 
-    .sidebar.expand {
-        position: fixed;
-        top: 3.5rem;
-        left: 0;
-        height: auto;
-        min-width: 100%;
-        z-index: 1050;
-    }
+        .sidebar.expand {
+            position: fixed;
+            top: 3.5rem;
+            left: 0;
+            height: auto;
+            min-width: 100%;
+            z-index: 1050;
+        }
 }
 
 ::deep .app-sidebar {
@@ -37,13 +37,13 @@
     --dxbl-treeview-spacing-y: 1rem;
 }
 
-::deep .app-sidebar .root-item > :first-child {
-    --dxbl-treeview-font-weight: 600;
-}
+    ::deep .app-sidebar .root-item > :first-child {
+        --dxbl-treeview-font-weight: 600;
+    }
 
-::deep .app-sidebar .root-item > :only-child:not(.dxbl-treeview-tmpl) > button {
-    display: none;
-}
+    ::deep .app-sidebar .root-item > :only-child:not(.dxbl-treeview-tmpl) > button {
+        display: none;
+    }
 
 @media (max-width: 1199.98px) {
     ::deep .app-sidebar {

@@ -1,0 +1,49 @@
+@inject IJSRuntime JS
+@implements IAsyncDisposable
+<div @ref=@toolbarContainerRef></div>
+<div @ref=@editAreaRef ondxbl:htmleditor-htmlchanged="@OnHtmlChanged"></div>
+@code {
+    ElementReference toolbarContainerRef;
+    ElementReference editAreaRef;
+
+    IJSObjectReference moduleRef;
+    IJSObjectReference htmlEditorRef;
+
+    [Parameter] public string? Html { get; set; }
+    [Parameter] public EventCallback<string?> HtmlChanged { get; set; }
+    protected override sealed async Task OnAfterRenderAsync(bool firstRender) {
+        // https://learn.microsoft.com/en-us/aspnet/core/blazor/javascript-interoperability/call-javascript-from-dotnet?view=aspnetcore-7.0#javascript-libraries-that-render-ui
+        if(firstRender) {
+            moduleRef = await JS.InvokeAsync<IJSObjectReference>("import", "./_content/JSWidgetsRCL/DevExtremeComponents/DevExtremeHtmlEditor.razor.js");
+            htmlEditorRef = await moduleRef.InvokeAsync<IJSObjectReference>("initializeHtmlEditor", editAreaRef, toolbarContainerRef, Html);
+        }
+    }
+    protected override bool ShouldRender() => false;
+    
+    protected override async Task OnParametersSetAsync()
+    {
+        if(htmlEditorRef is not null)
+            await htmlEditorRef.InvokeVoidAsync("option", "value", Html);
+    }
+    
+    async Task OnHtmlChanged(HtmlEditorHtmlChangedEventArgs args) {
+        if(args.html != Html)
+            await HtmlChanged.InvokeAsync(args.html);
+    }
+    async ValueTask IAsyncDisposable.DisposeAsync()
+    {
+        if (htmlEditorRef is not null)
+        {
+            await htmlEditorRef.DisposeAsync();
+        }
+
+        if (moduleRef is not null)
+        {
+            await moduleRef.DisposeAsync();
+        }
+    }
+
+    static string GenerateUniqueDOMId() {
+        return $"id{Guid.NewGuid()}";
+    }
+}
