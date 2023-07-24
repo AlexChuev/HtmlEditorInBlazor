@@ -24,7 +24,7 @@ window.Blazor.registerCustomEventType(HtmlEditorHtmlChangedEvent.eventName, {
 let devExtremeInitPromise = null;
 function ensureDevExtremeAsync() {
     return devExtremeInitPromise || (devExtremeInitPromise = new Promise(async (resolve, _) => {
-        await loadScriptAsync("https://cdnjs.cloudflare.com/ajax/libs/devextreme-quill/1.5.7/dx-quill.min.js");
+        await loadScriptAsync("https://cdnjs.cloudflare.com/ajax/libs/devextreme-quill/1.6.2/dx-quill.min.js");
         await loadScriptAsync("https://cdn3.devexpress.com/jslib/23.1.3/js/dx.all.js");
         await loadStylesheetAsync("https://cdn3.devexpress.com/jslib/23.1.3/css/dx.common.css");
         await loadStylesheetAsync("https://cdn3.devexpress.com/jslib/23.1.3/css/dx.material.purple.light.compact.css");
